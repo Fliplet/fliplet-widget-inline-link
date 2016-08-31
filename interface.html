@@ -1,0 +1,20 @@
+<div>
+  <form class="form-horizontal">
+    <header>
+      <p>Configure your link</p>
+      <a id="help_tip" href="#">Need help?</a>
+    </header>
+
+    <div class="form-group clearfix">
+      <div class="col-xs-4 control-label">
+        <label for="linkLabel">Link label</label>
+      </div>
+      <div class="col-xs-8">
+        <input type="text" name="linkLabel" class="form-control" id="linkLabel" placeholder="Label" value="{{#if label}}{{label}}{{else}}Link label{{/if}}" required />
+      </div>
+    </div>
+
+    <div id="action"></div>
+
+  </form>
+</div>
