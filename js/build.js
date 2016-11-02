@@ -4,4 +4,5 @@ $('[data-inline-link-id]').click(function (event) {
   var data = Fliplet.Widget.getData($(this).data('inline-link-id'));
 
   Fliplet.Navigate.to(data.action);
+  Fliplet.Analytics.trackEvent('link', 'screen', event.target.value);
 });
