@@ -1,7 +1,7 @@
-$('[data-inline-link-id]').click(function (event) {
-  event.preventDefault();
+Fliplet.Widget.instance('inline-link', function (config) {
+  $(this).on('click', function (event) {
+    event.preventDefault();
 
-  var data = Fliplet.Widget.getData($(this).data('inline-link-id'));
-
-  Fliplet.Navigate.to(data.action);
+    Fliplet.Navigate.to(config.action);
+  });
 });
