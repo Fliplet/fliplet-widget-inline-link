@@ -16,7 +16,8 @@
     "assets": [
       "vendor/jquery.debounce.js",
       "js/interface.js",
-      "css/interface.css"
+      "css/interface.css",
+      "css/build.css"
     ]
   },
   "build": {
