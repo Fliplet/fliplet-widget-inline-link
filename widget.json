@@ -16,8 +16,7 @@
     "assets": [
       "vendor/jquery.debounce.js",
       "js/interface.js",
-      "css/interface.css",
-      "css/build.css"
+      "css/interface.css"
     ]
   },
   "build": {
@@ -25,7 +24,8 @@
       "fliplet-core"
     ],
     "assets": [
-      "js/build.js"
+      "js/build.js",
+      "css/build.css"
     ]
   },
   "references": [
