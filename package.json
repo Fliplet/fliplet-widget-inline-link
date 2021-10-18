@@ -1,7 +1,6 @@
 {
   "name": "widget-inline-link",
   "version": "1.0.0",
-  "description": "Documentation is available at https://developers.fliplet.com/API/components/form-builder.html",
   "main": "index.js",
   "scripts": {
     "eslint:github-action": "eslint ."
