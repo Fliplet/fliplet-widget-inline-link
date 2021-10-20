@@ -24,7 +24,8 @@
       "fliplet-core"
     ],
     "assets": [
-      "js/build.js"
+      "js/build.js",
+      "css/build.css"
     ]
   },
   "references": [

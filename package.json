@@ -1,0 +1,22 @@
+{
+  "name": "widget-inline-link",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "eslint:github-action": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fliplet/fliplet-widget-inline-link.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fliplet/fliplet-widget-inline-link/issues"
+  },
+  "homepage": "https://github.com/Fliplet/fliplet-widget-inline-link#readme",
+  "dependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-fliplet": "^1.0.7"
+  }
+}
