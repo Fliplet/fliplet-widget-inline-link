@@ -8,6 +8,8 @@ data.action.omitPages = omitPages;
 
 // Track if save was initiated from Studio save button
 var savingFromStudioButton = false;
+// Track if label was manually changed by user
+var labelChangedByUser = false;
 
 var linkActionProvider = Fliplet.Widget.open('com.fliplet.link', {
   // If provided, the iframe will be appended here,
@@ -43,10 +45,16 @@ linkActionProvider.then(function (result) {
   data.action = result.data;
   save(savingFromStudioButton);
   savingFromStudioButton = false;
+  labelChangedByUser = false;
 });
 
 function save(notifyComplete) {
   data.label = $('#linkLabel').val();
+  // Clear linkStyle when user manually edits the label
+  // to allow appearance panel styles to take effect
+  if (labelChangedByUser) {
+    delete data.linkStyle;
+  }
 
   Fliplet.Widget.save(data).then(function () {
     if (notifyComplete) {
@@ -59,6 +67,7 @@ function save(notifyComplete) {
 }
 
 $('#linkLabel').on('keyup change paste', $.debounce(function() {
+  labelChangedByUser = true;
   save();
 }, 500));
 

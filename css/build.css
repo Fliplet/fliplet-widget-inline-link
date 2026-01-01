@@ -1,3 +1,24 @@
+/* Ensure wrapper displays inline to not break text flow */
+[data-widget-package="com.fliplet.inline-link"] {
+  display: inline;
+}
+
+/* Base link styles */
 [data-widget-package="com.fliplet.inline-link"] > a {
   cursor: pointer;
+  display: inline;
+}
+
+/* When appearance panel adds classes to wrapper, <a> inherits from wrapper */
+/* These rules have higher specificity than inline styles on <a> when combined with wrapper classes */
+[data-widget-package="com.fliplet.inline-link"][class*="fl-text-"] > a,
+[data-widget-package="com.fliplet.inline-link"][class*="fl-color-"] > a,
+[data-widget-package="com.fliplet.inline-link"][class*="fl-font-"] > a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: inherit;
+  font-family: inherit;
+  line-height: inherit;
 }
