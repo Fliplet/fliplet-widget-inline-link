@@ -6,6 +6,9 @@ var omitPages = page ? [page.id] : [];
 data.action = data.action || {};
 data.action.omitPages = omitPages;
 
+// Track if save was initiated from Studio save button
+var savingFromStudioButton = false;
+
 var linkActionProvider = Fliplet.Widget.open('com.fliplet.link', {
   // If provided, the iframe will be appended here,
   // otherwise will be displayed as a full-size iframe overlay
@@ -13,6 +16,7 @@ var linkActionProvider = Fliplet.Widget.open('com.fliplet.link', {
   // Also send the data I have locally, so that
   // the interface gets repopulated with the same stuff
   data: data.action,
+  closeOnSave: false,
   // Events fired from the provider
   onEvent: function (event, data) {
     if (event === 'interface-validate') {
@@ -24,6 +28,7 @@ var linkActionProvider = Fliplet.Widget.open('com.fliplet.link', {
 
 // 1. Fired from Fliplet Studio when the external save button is clicked
 Fliplet.Widget.onSaveRequest(function () {
+  savingFromStudioButton = true;
   $('form').submit();
 });
 
@@ -36,7 +41,8 @@ $('form').submit(function (event) {
 // 3. Fired when the provider has finished
 linkActionProvider.then(function (result) {
   data.action = result.data;
-  save(true);
+  save(savingFromStudioButton);
+  savingFromStudioButton = false;
 });
 
 function save(notifyComplete) {
